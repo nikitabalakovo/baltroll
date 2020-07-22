@@ -80,10 +80,10 @@
         let generate_button = document.getElementById('generate');
         generate_button.removeAttribute('disabled');
         let save_button = document.getElementById('save');
+        let canvas = document.getElementById('canvas');
+        let context = canvas.getContext('2d');
         function render() {
             generate_button.setAttribute('disabled', '');
-            let canvas = document.getElementById('canvas');
-            let context = canvas.getContext('2d');
             context.fillStyle = 'white';
             context.fillRect(0, 0, canvas.width, canvas.height);
             let pic = new Image();
@@ -115,10 +115,9 @@
         }
         function save() {
             const elem = document.createElement('a');
-            elem.setAttribute('download', "infoImage.jpg");
+            elem.setAttribute('download', "infoImage.png");
             elem.href = canvas.toDataURL("image/png");
             elem.click();
-            elem.parentNode.removeChild(elem);
         }
     </script>
 </body>
